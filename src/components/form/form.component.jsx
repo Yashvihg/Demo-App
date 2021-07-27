@@ -1,56 +1,29 @@
 import React, { Component } from "react";
-
+import { Form, Button } from "react-bootstrap";
 class FormComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: " ",
-      age: " ",
-      password: " ",
-    };
-  }
-  handleChange = (evt) => {
-    this.setState({ [evt.target.name]: evt.target.value });
-  };
-
   render() {
     return (
-      <div>
-        <form>
-          <label htmlFor="Name ">Your Name</label>
-          <input
-            name="name"
-            type="text"
-            value={this.state.name}
-            placeholder="Enter Your Name "
-            onChange={this.handleChange}
-          />
-          <input
-            name="email"
-            type="email"
-            value={this.state.email}
-            placeholder="Enter The Email"
-            onChange={this.handleChange}
-          />
-          <input
-            name="age"
-            type="number"
-            value={this.state.age}
-            placeholder="Enter The Age "
-            onChange={this.handleChange}
-          />
-          <input
-            name="password"
-            type="password"
-            value={this.state.password}
-            placeholder="Enter The Password "
-            onChange={this.handleChange}
-          />
-        </form>
-      </div>
+      <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     );
   }
 }
-
 export default FormComponent;
