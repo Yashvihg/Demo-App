@@ -3,7 +3,7 @@ import {Nav} from "react-bootstrap";
 // import { withRouter } from "react-router";
 // import '../pages/style/Dashboard.css'
 
-const Sidebar = props => {
+const Sidebar = (props) => {
    
 
     return (
