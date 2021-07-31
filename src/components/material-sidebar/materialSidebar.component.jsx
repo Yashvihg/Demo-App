@@ -17,6 +17,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import {Switch,Route} from "react-router-dom"
+import FormComponent from '../form/form.component';
+import ContactUs from '../contact/contact.component';
 
 const drawerWidth = 240;
 
@@ -141,12 +144,18 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Home', 'Form', 'About', 'ContactUs'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+            
             </ListItem>
           ))}
+            <Switch>
+          <Route exact path="/form" component={FormComponent} />
+          <Route exact path="/contact" component={ContactUs} />
+          <Route exact path="/" component={homePage} />
+          <Route exact path="/about" component={About} />
+
+        </Switch>
         </List>
         <Divider />
         <List>
